@@ -2,8 +2,8 @@
 var generateBtn = document.querySelector("#generate");
 var lcCriteriaChar = "abcdefghijklmnopqrstuvwxyz";
 var ucCriteriaChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var numCharChar = "0123456789";
-var specCharChar = "!@#$%^&*()";
+var numCriChar = "0123456789";
+var specCriChar = "!@#$%^&*()";
 
 
 
@@ -26,22 +26,22 @@ function generatePassword() {
     // } else {
     //     ucCriteria = "";
     }
-    var numChar = confirm("Do you want to include numbers?");
-    if (numChar == true) {
-        allChar = allChar.concat(numCharChar.split(''));
+    var numCriteria = confirm("Do you want to include numbers?");
+    if (numCriteria == true) {
+        allChar = allChar.concat(numCriChar.split(''));
     // } else {
     //     numChar = "";
     }
-    var specChar = confirm("Do you want to include special characters?");
-    if (specChar == true) {
-        allChar = allChar.concat(specCharChar.split(''));
+    var specCriteria = confirm("Do you want to include special characters?");
+    if (specCriteria == true) {
+        allChar = allChar.concat(specCriChar.split(''));
 
     // } else {
     //     specChar = "";
     } 
     // Prompt if no characters are selected
-    if (lcCriteria && ucCriteria && numChar && specChar == false) {
-        prompt("You must choose at least one character type");
+    if (lcCriteria && ucCriteria && numCriteria && specCriteria == false) {
+        password = "";
         
     }
     // var allChar = [lcCriteria, ucCriteria, numChar, specChar];
