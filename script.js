@@ -4,8 +4,7 @@ var lcCriteriaChar = "abcdefghijklmnopqrstuvwxyz";
 var ucCriteriaChar = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var numCharChar = "0123456789";
 var specCharChar = "!@#$%^&*()";
-var passwordText = "";
-var password = "";
+
 
 
 function generatePassword() {
@@ -14,41 +13,46 @@ function generatePassword() {
     while (pwLength < 8 || pwLength > 128){
         pwLength = prompt("Invalid number. How many characters would you like in your password? Must enter between 8 and 128.")
       }
-    allChar = []
+    var allChar = []
     var lcCriteria = confirm("Do you want to include lowercase letters?");
     if (lcCriteria == true) {
-        allChar.push(lcCriteriaChar.split(''));
+        allChar = allChar.concat(lcCriteriaChar.split(''));
     // } else {
     //     lcCriteria = "";
     }
     var ucCriteria = confirm("Do you want to include uppercase letters?");
     if (ucCriteria == true) {
-        allChar.push(ucCriteriaChar.split(''));
+        allChar = allChar.concat(ucCriteriaChar.split(''));
     // } else {
     //     ucCriteria = "";
     }
     var numChar = confirm("Do you want to include numbers?");
     if (numChar == true) {
-        allChar.push(numCharChar.split(''));
+        allChar = allChar.concat(numCharChar.split(''));
     // } else {
     //     numChar = "";
     }
     var specChar = confirm("Do you want to include special characters?");
     if (specChar == true) {
-        allChar.push(specCharChar.split(''));
+        allChar = allChar.concat(specCharChar.split(''));
 
     // } else {
     //     specChar = "";
+    } 
+    // Prompt if no characters are selected
+    if (lcCriteria && ucCriteria && numChar && specChar == false) {
+        prompt("You must choose at least one character type");
+        
     }
-    
     // var allChar = [lcCriteria, ucCriteria, numChar, specChar];
-
+    var password = ""
+    
     for (var i = 0; i < pwLength; i++) {
-        passwordText.value = allChar[Math.floor(Math.random()) * [Math.floor(allChar.length)]];
+        password += allChar[Math.floor(Math.random() * Math.floor(allChar.length))];
         
     }
     
-    return allChar;
+    return password
 
 }
 
